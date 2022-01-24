@@ -26,7 +26,7 @@ class App(Tk):
         container.grid_columnconfigure(0, weight=1)
 
         self.frames = {}
-        self.f = "word_lists/words1.csv"
+        self.f = "word_lists/words1(abate-acuity).csv"
         self.read_word_file()
 
         self.bg_colour = 'white'

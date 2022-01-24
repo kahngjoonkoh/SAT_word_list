@@ -518,6 +518,8 @@ class SpellingsPage(Frame):
         korean_def = self.controller.word_list[self.current_answer]['korean']
         sentence = self.controller.word_list[self.current_answer]['example'].replace(
             self.current_answer, "_____")
+        sentence = sentence.replace(
+            self.current_answer.capitalize(), "_____")
         t = f"""
 {definition}
         

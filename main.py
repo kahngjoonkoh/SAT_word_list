@@ -1,12 +1,36 @@
 import csv
+import os
 import random
 from tkinter import *
 from tkinter import font as tkfont
 from tkinter import scrolledtext as st
 
 
-class App(Tk):
+class Initial(Tk):
     def __init__(self):
+        super(Initial, self).__init__()
+        self.title("Prompt")
+        self.geometry("300x100")
+        self.resizable(False, False)
+        self.folderDir = "word_lists"
+        csv_files_in_dir = [_ for _ in os.listdir("word_lists") if _.endswith(r".csv")]
+        self.text = StringVar()
+        self.text.set(csv_files_in_dir[0])
+        dropdown_menu = OptionMenu(self, self.text, *csv_files_in_dir)
+        dropdown_menu.pack()
+
+        submit = Button(self, text="Submit", command=self.start_App).pack()
+
+    def start_App(self):
+
+        self.destroy()
+        print(f"{self.folderDir}/{self.text.get()} opened")
+        app = App(f"{self.folderDir}/{self.text.get()}")
+        app.mainloop()
+
+
+class App(Tk):
+    def __init__(self, f):
         super(App, self).__init__()
 
         self.title("SAT Vocabs")
@@ -26,7 +50,8 @@ class App(Tk):
         container.grid_columnconfigure(0, weight=1)
 
         self.frames = {}
-        self.f = "word_lists/words1(abate-acuity).csv"
+        #self.f = "word_lists/words1(abate-acuity).csv"
+        self.f = f
         self.read_word_file()
 
         self.bg_colour = 'white'
@@ -671,5 +696,5 @@ class MutableText(Text):
 
 
 if __name__ == "__main__":
-    app = App()
-    app.mainloop()
+    initial = Initial()
+    initial.mainloop()

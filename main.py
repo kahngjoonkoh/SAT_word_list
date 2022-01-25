@@ -25,6 +25,7 @@ class Initial(Tk):
 
         self.destroy()
         print(f"{self.folderDir}/{self.text.get()} opened")
+
         app = App(f"{self.folderDir}/{self.text.get()}")
         app.mainloop()
 

@@ -17,6 +17,10 @@ Blue: new, Green: memorized, Amber: memorizing, Red: troubling.
 
 Can check the dictionary definition, korean translation and example usage.
 
+<img width="412" alt="image" src="https://user-images.githubusercontent.com/46638829/180662053-968cd8b3-f976-4eb2-ba0b-a28382b5aab7.png">
+
+Can check words of each progress level using the colored tabs.
+
 ### Learning page
 Green indicates correct answers and red indicates wrong answers. Each answer to a word will update its progress accordingly.
 
